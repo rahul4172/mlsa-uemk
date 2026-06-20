@@ -118,7 +118,7 @@ export default function Navbar() {
 
           {!isMobile && (
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="flex items-center gap-2 text-sm font-medium p-1 bg-gray-100/50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.05] rounded-xl pointer-events-auto backdrop-blur-md">
+              <div className="flex items-center gap-1.5 text-sm font-medium p-1 bg-gray-100/50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.05] rounded-xl pointer-events-auto backdrop-blur-md">
                 {NAV_ITEMS.map((item) => {
                   const isActive = location.pathname === item.href;
                   return (
@@ -140,13 +140,24 @@ export default function Navbar() {
                     </Link>
                   );
                 })}
+                
+                <div className="w-[1px] h-5 bg-gray-300 dark:bg-white/10 mx-1" />
+                
+                <Link
+                  to="/admin"
+                  title="Admin Dashboard"
+                  className={`relative p-2.5 mx-0.5 rounded-lg transition-colors duration-300 flex items-center justify-center ${
+                    location.pathname === '/admin' ? "text-slate-900 dark:text-white bg-white dark:bg-white/10 shadow-sm dark:shadow-inner" : "text-gray-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white hover:bg-gray-200/50 dark:hover:bg-white/5"
+                  }`}
+                >
+                  <svg className="w-4 h-4 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                </Link>
               </div>
             </div>
           )}
 
           {!isMobile && (
             <div className="flex items-center gap-4 relative z-10 pointer-events-auto">
-
               <Link to="/portal">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
@@ -226,6 +237,13 @@ export default function Navbar() {
               </div>
               
               <div className="mt-8 pt-8 border-t border-gray-200 dark:border-white/10 flex flex-col gap-4">
+                <Link
+                  to="/admin"
+                  onClick={() => setMobileOpen(false)}
+                  className="w-full py-4 rounded-xl bg-gray-100 dark:bg-white/5 text-center font-bold text-gray-500 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10 hover:text-slate-900 dark:hover:text-white transition-colors"
+                >
+                  Admin Panel
+                </Link>
                 <Link
                   to="/portal"
                   onClick={() => setMobileOpen(false)}
