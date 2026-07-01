@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'https://mlsa-mss-uemk-main.vercel.app';
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://mlsa-mss-uemk-backend.vercel.app';
 
 // Public client
 export const api = axios.create({ baseURL: BASE_URL });
